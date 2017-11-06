@@ -225,8 +225,7 @@ label:hover:before {
 			</tr>
 			
 			<tr>
-			<td><a href='javascript:seleccionar_todo();'><FONT size="2" FACE="small fonts" color="red">Seleccionar Todo</FONT></a></td>
-			<td><a href='javascript:deseleccionar_todo();'><FONT size="2" FACE="small fonts" color="red">Deseleccionar Todo</FONT></a></td>
+			
 			</tr>
 			<?php
 			
@@ -276,48 +275,48 @@ label:hover:before {
 				}
 				else
 				{
-					echo "<tr>";
+					//echo "<tr>"; /*cambio para este filemanager*/
 						//echo "<td></td>";
 						
-							if($departament[$primero]=="")
+							if($departament[$primero]=="" or $departamentoUSER==$departament[$primero])
 							{
 								
 							}
 							else
 							{
-								echo "<td align='left'>";
+								echo "<tr><td>";
 								echo "<input name='".$departament2[$primero]."' type='checkbox' id='squaredFour".$primero."' />";
 								echo "<label for='squaredFour".$primero."'>$departament[$primero]</label>";	
-								echo "</td>";
-								echo "<td></td>";
+								echo "</td></tr>";
+								//echo "<td></td>";
 							}
 							
 							
-								if($departament[$segundo]=="")
+								if($departament[$segundo]=="" or $departamentoUSER==$departament[$segundo])
 							{
 								
 							}
 							else
 							{
-								echo "<td align='left'>";
+								echo "<tr><td>";
 								echo "<input name='".$departament2[$segundo]."' type='checkbox' id='squaredFour".$segundo."' />";
 								echo "<label for='squaredFour".$segundo."'>$departament[$segundo]</label>";
-								echo "</td>";
-								echo "<td></td>";
+								echo "</td></tr>";
+								//echo "<td></td>";
 							}		
 
-								if($departament[$tercero]=="")
+								if($departament[$tercero]=="" or $departamentoUSER==$departament[$tercero])
 							{
 								
 							}
 							else
 							{
-								echo "<td align='left'>";
+								echo "<tr><td>";
 								echo "<input name='".$departament2[$tercero]."' type='checkbox' id='squaredFour".$tercero."'/>";
 								echo "<label for='squaredFour".$tercero."'>$departament[$tercero]</label>";
-								echo "</td>";
+								echo "</td></tr>";
 							}									
-					echo "</tr>";
+					//echo "</tr>";
 				}
 				
 				
@@ -335,7 +334,11 @@ label:hover:before {
 				}
 			}
 			?>
-		
+			</br>
+			
+			<tr>
+				<td><FONT size="3" FACE="small fonts" color="#3B170B">&nbsp</FONT></td>
+			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" onclick='alert("Se subio correctamente tu Archivo.")' value="Subir" Name="Subir" class="turquesa"/></td>
 			</tr>

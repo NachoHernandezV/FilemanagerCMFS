@@ -6,7 +6,7 @@ session_start();
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>INGRESAR</title>
 </head>
-<style type="text/css">   
+<style type="text/css">
 
 .verde {
 	-moz-box-shadow: 0px 10px 14px -7px #3e7327;
@@ -48,32 +48,33 @@ session_start();
 	position:relative;
 	top:1px;
 }
-	  
+
 .tb5 {
 	background-color : #F0FFFF;
 	border:2px solid #008B8B;
 	border-radius:5px;
-	height: 22px;
-	width: 130px;
+	height: 27px;
+	width: 135px;
 }
 </style>
-<body background="fondogeneral.png">
+<body style="background-color:#E6F7F9;">
+
+<img src="publico/imagenes/logo.png" alt="Filemanager" width="220" height="200">
+
 <div align="center">
-
-
 
 <table border="0" >
 		<tr>
 			<td ALIGN=CENTER></td>
-		<td ALIGN=CENTER><img src="publico/imagenes/logo.png" alt="Filemanager" width="320" height="300"></td>
+		<td ALIGN=left></td>
 		</tr>
 		<tr>
 			<td ALIGN=CENTER></td>
-			<td ALIGN=CENTER><font size=3 face="verdana" style="color:#000000">File Managaner</font></td>
+			<td  ALIGN=CENTER><img src="publico/imagenes/filemanager.png" alt="Filemanager" width="500" height="80"></td>
 		</tr>
 		<tr>
 			<td ALIGN=CENTER></td>
-			<td  ALIGN=CENTER><img src="publico/imagenes/nube.png" alt="Filemanager" width="140" height="80"></td>
+			<td  ALIGN=CENTER><img src="publico/imagenes/bajar.png" alt="Filemanager" width="290" height="250"></td>
 		</tr>
 		<tr></tr><tr></tr><tr></tr><tr></tr>
 		<tr></tr><tr></tr><tr></tr><tr></tr>
@@ -85,14 +86,14 @@ session_start();
 				<td ALIGN=right></td>
 				<td ALIGN=CENTER>
 					<font size=2 face="verdana" style="color:#44822F">&nbsp&nbsp&nbsp&nbsp&nbspUsuario</font>
-					<input  class="tb5" type="text" size="13" name="usuario" id="usuario">
+					<input  class="tb5" type="text" size="15" name="usuario" id="usuario">
 				</td>
 			</tr>
 			<tr>
 				<td ALIGN=right></td>
 				<td ALIGN=CENTER>
 					<font size=2 face="verdana"  style="color:#44822F">Contraseña</font>
-					<input class="tb5" type="password" size="13" name="pass" id="pass">
+					<input class="tb5" type="password" size="15" name="pass" id="pass">
 				</td>
 			</tr>
 			<tr>
@@ -103,7 +104,7 @@ session_start();
 				</td>
 			</tr>
 		</form>
-</table>	
+</table>
 </div>
 <?php
 
@@ -168,31 +169,31 @@ if ($link->connect_error)
 	$consultaarchivos="SELECT * FROM departamentos";
 	$re=mysqli_query($link,$consultaarchivos);
 	$j=0;
-	while ($depart=mysqli_fetch_array($re)) 
+	while ($depart=mysqli_fetch_array($re))
 	{
-				
+
 		$departament[$j]=$depart['departamento'];
 		$j++;
-						
-	}	
+
+	}
 	///////
 
-	
+
 	for($i=0;$i<40; $i++) //OBTENER LA CONSULTA
 	{
-		
+
 		$sql="Select * from usuarios where nombre='".$usuario."' and password='".$pass."' and departamento='".$departament[$i]."'";
 		$query[$i]=mysqli_query($link,$sql);
 		//$parteUsuarios[$i]=mysqli_fetch_array($query[$i]);
 	}
 	///////
-	
+
 	$bandera=0;
 	for($i=0;$i<40; $i++)   //mandar A LA VENTANA SEGUN EL AREA
 	{
-		if($existe = mysqli_fetch_object($query[$i])) 
+		if($existe = mysqli_fetch_object($query[$i]))
 		{
-		//echo $parteUsuarios[$i]." clave";	
+		//echo $parteUsuarios[$i]." clave";
 			if($existe->nivelpermiso == "E")  //IDENTIFICAR SI ES USUARIO estandar
 			{
 				$_SESSION['general']="si";
@@ -209,13 +210,13 @@ if ($link->connect_error)
 				$bandera=1;
 				$_SESSION['explorador']=$navegador;
 			}
-			
+
 		}
-		
+
 
 	}
-	
-	
+
+
 	if($usuario == "" or $pass == "" ) //detectar VACIO
 	{
 		echo "No se puede ingresar usuario o contraseña vacio";
@@ -226,7 +227,7 @@ if ($link->connect_error)
 	}
 
 
-	
+
 
 }//fin del if de ingresar
 

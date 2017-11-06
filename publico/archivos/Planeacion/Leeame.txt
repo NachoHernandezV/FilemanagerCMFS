@@ -1,0 +1,24 @@
+USB Show 1.0.0
+03/Mayo/2009
+http://ldcmx.info
+
+Gracias por descargar USB Show y tomarse la molestia de leer este archivo.
+
+USB Show le ayudara a poder ver sus archivos, que por algún virus o 
+persona fueron escondidos.
+
+Nosotros recomendamos hacer un respaldo de los archivos recuperados
+y después formatear su dispositivo.
+
+USB Show se puede utilizar el cualquier dispositivo de almacenamiento
+extraible.
+
+RECOMENDACIONES:
+
+* Despues de recuperar sus archivos por favor analicé estos con algún
+programa antivirus.
+* USB Show recuperara todos los archivos ocultos, posiblemente también
+algún malware es por eso que debe ser usado con mucha precaución.
+* USB Shoe puede ser usado el discos duros o en discos extraibles.
+* Antes de recuperar sus archivos es recomendable que el sistema donde
+vaya a realizar esta acción no este infectada por algún malware.
