@@ -10,8 +10,8 @@ session_start();
 	<meta name=viewport content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/Estilos.css">
 	<meta name="generator" content="Geany 1.22" />
-	
-<style type="text/css">	
+
+<style type="text/css">
 button {
  border: none;
  background: #3a7999;
@@ -128,7 +128,7 @@ button:hover:before {
 
 	</style>
 </head>
-<body background="fond2.png">
+<body background="imagenes\fond3.png">
 <div align="center">
 
 	<h1>
@@ -140,69 +140,69 @@ button:hover:before {
 		<tr>
 				<td><FONT size="5" FACE="small fonts" color="#3B170B"><strong>&nbsp<strong></FONT>	</td>
 		</tr>
-		
-	
-		
+
+
+
 		<form action="central.php" target="central" method="post" enctype="multipart/form-data">
 
-	
+
 			<tr>
 				<td align="center"><FONT size="4" FACE="small fonts" color="#3B170B"><strong>Areas que comparten archivos<strong></FONT></td>
 			</tr>
 			<tr>
-				
+
 				<td align="center">
-					
-					<SELECT NAME="Areas" class="turquesa" onchange="this.form.submit()"> 
+
+					<SELECT NAME="Areas" class="turquesa" onchange="this.form.submit()">
 					<?php
 					include 'Datos/conexion.php';
-					
+
 					$departamentoUSER=$_SESSION['depart'];
 
-					
+
 					$consultapermiso = "SELECT * FROM permisosusuarios pu, usuarios u WHERE pu.idusuario=u.idusuario and u.nombre='".$_SESSION['usuarioname']."' and password='".$_SESSION['password']."'";
 					$permisosareas=mysqli_query($con,$consultapermiso);
 					$columpermisosareas=mysqli_fetch_array($permisosareas);
-					
+
 					//echo $columpermisosareas['Almacen']."Hola";
-					
+
 					//$consultaarchivos="SELECT * FROM departamentos ORDER BY departamento ASC ";
 					$consultaarchivos="SELECT * FROM departamentos LIMIT 38";
 					$re=mysqli_query($con,$consultaarchivos);
-					
+
 					$contadornum=0;
-					while ($depart=mysqli_fetch_array($re)) 
+					while ($depart=mysqli_fetch_array($re))
 					{
-						
+
 						$columna=$depart['departamentoJunto'];
-						
+
 						if($contadornum==0)
 						{
 							echo "<OPTION VALUE='inicio' >Seleccione una Area</OPTION>";
 						}
-						
+
 						if($departamentoUSER == $depart['departamento'])
 						{
-							
+
 						}
 						else
 						{
 							if($columpermisosareas[$columna] == 'si')
 							{
 								echo "<OPTION VALUE='".$depart['departamentoJunto']."' >".$depart['departamento']."</OPTION>";
-								
+
 							}
 						}
-						
+
 						$contadornum=1;
-					}	
+					}
 						$i=0;
-				
+
 					?>
-					   
+
 					</SELECT>
 				</td><!--columna 3 -->
-				
+
 			</tr>
 			<?php
 			function detect()
@@ -221,7 +221,7 @@ button:hover:before {
 					$f = $s + strlen($parent);
 					$version = substr($_SERVER['HTTP_USER_AGENT'], $f, 15);
 					$version = preg_replace('/[^0-9,.]/','',$version);
-					
+
 					if ($s)
 					{
 						$info['browser'] = $parent;
@@ -237,10 +237,10 @@ button:hover:before {
 				# devolvemos el array de valores
 				return $info;
 			}
-				
+
 				$info=detect();
 
-				
+
 				if($info["browser"]=='FIREFOX')
 				{
 					echo "<tr>";
@@ -248,47 +248,47 @@ button:hover:before {
 					echo "</tr>";
 				}
 			?>
-			
-		
-		
+
+
+
 		</form>
 	</table>
-	
-	
+
+
 	<br/>
 	<br/>
 	<br/><br/>
 	<br/>
-	
+
 	<table align="center">
 	<form action="central.php" target="central" method="post" enctype="multipart/form-data">
 				<tr>
 					<td align="center"><FONT size="4" FACE="small fonts" color="#3B170B"><strong>Mis Archivos Subidos</strong></FONT></td>
 				</tr>
 				<tr>
-					
+
 					<td align="center"><input type="submit" name="MisArchivos" class="turquesa" value="Mis Archivos" /></td><!--columna 1 -->
 				</tr>
 		</form>
 		<tr>
 			<td><FONT size="5" FACE="small fonts" color="#3B170B"><strong>&nbsp<strong></FONT></td>
 		</tr>
-	
+
 		<tr>
 			<td align="center"><FONT size="4" FACE="small fonts" color="#3B170B"><strong>Agregar archivos<strong></FONT></td>
 		</tr>
-	
+
 		<tr>
-		
+
 		<td align="center"><input type="submit" value="Subir" class="turquesa" onclick="window.open('index.php','nuevaVentana','width=700, height=585')" /></td>
 		</tr>
-		
+
 		<tr>
 			<td align="center"><FONT size="4" FACE="small fonts" color="#3B170B"><strong>Carpetas<strong></FONT></td>
 		</tr>
-	
+
 		<tr>
-		
+
 		<td align="center"><input type="submit" value="Crear" class="turquesa" onclick="window.open('crearcarpeta.php','nuevaVentana2','width=440, height=450')" /></td>
 		</tr>
 	</table>
